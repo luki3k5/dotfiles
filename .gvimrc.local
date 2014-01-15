@@ -1,0 +1,27 @@
+" we don't want a nasty popup
+set noballooneval
+
+set lines=60 columns=196
+set gfn=Monaco:h13
+" set gfn=Bitstream\ Vera\ Sans\ Mono:h14
+" set guifont=Menlo\ Regular:h14"
+color solarized
+
+" set command-T to open files always in new tab
+let g:CommandTAcceptSelectionMap = '<C-t>'
+let g:CommandTAcceptSelectionTabMap = '<CR>'
+
+map <F2> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
+au BufRead,BufNewFile *.rabl setf ruby
+
+"set foldmethod=syntax
+
+" ignore for CMD-T plugin
+set wildignore+=.*/**
+set wildignore+=_*/**
+set wildignore+=autotest
+set wildignore+=bundeled/**
+set wildignore+=coverage/**
+set wildignore+=log
+set wildignore+=tmp
+set wildignore+=vendor

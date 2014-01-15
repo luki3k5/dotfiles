@@ -1,0 +1,77 @@
+" we don't want a nasty popup
+"set noballooneval
+
+"set lines=60 columns=196
+"set gfn=Monaco:h13
+"set wrap linebreak nolist
+
+" set gfn=Bitstream\ Vera\ Sans\ Mono:h14
+set guifont=Menlo\ Regular:h14"
+"syntax enable
+set background=dark
+colorscheme solarized
+"color solarized
+
+" set command-T to open files always in new tab
+" let g:CommandTAcceptSelectionMap = '<C-t>'
+" let g:CommandTAcceptSelectionTabMap = '<CR>'
+
+let g:ctrlp_tabpage_position = 'ac'
+
+map <F2> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
+map <m-Z> :echo "Meta Z"<CR> 
+" au BufRead,BufNewFile *.rabl setf ruby
+
+"set foldmethod=syntax
+
+" ignore for CMD-T plugin
+set wildignore+=.*/**
+set wildignore+=_*/**
+set wildignore+=autotest
+set wildignore+=bundeled/**
+set wildignore+=coverage/**
+set wildignore+=log
+set wildignore+=tmp
+set wildignore+=vendor
+
+" this allows to add custom stuff per project
+if filereadable(".vim.custom")
+    so .vim.custom
+endif
+
+" setting the higlight on lines longer than 80 chars
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+nnoremap <Space> za
+
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
+
+
+" folding setup
+set foldmethod=syntax
+set foldlevelstart=1
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif

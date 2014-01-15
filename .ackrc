@@ -1,0 +1,16 @@
+--type-add=ruby=.slim,.feature,.haml,.rake,.rsel,.md
+--type-set=sass=.scss,.sass
+--ignore-dir=.bundle
+--ignore-dir=.git
+--ignore-dir=.idea
+--ignore-dir=.jhw-cache
+--ignore-dir=.rsync_cache
+--ignore-dir=_hosting
+--ignore-dir=_reports
+--ignore-dir=autotest
+--ignore-dir=bundeled
+--ignore-dir=coverage
+--ignore-dir=log
+--ignore-dir=solr
+--ignore-dir=tmp
+--ignore-dir=vendor
